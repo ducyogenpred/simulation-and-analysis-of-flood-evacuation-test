@@ -12,6 +12,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Button } from "../ui/button";
 
 function Content() {
   const [open, setOpen] = React.useState(false);
@@ -54,6 +55,7 @@ function Content() {
           <SelectContent>
             <SelectGroup>
               <SelectLabel>Typhoon Categories</SelectLabel>
+              <SelectItem value="no-typhoon">No Typhoon</SelectItem>
               <SelectItem value="tropical-depression">
                 Tropical Depression
               </SelectItem>
@@ -112,10 +114,12 @@ function Content() {
         <h4>Water Depth</h4>
         {/* Body */}
         <p className="text-muted-foreground mb-2 text-balance">
-          Specify average floodwater depth in meters. Higher depths often slow
-          movement and increase risk.
+          Specify average floodwater depth in meters.
         </p>
         <Input type="number" step="0.1" placeholder="0-10 m" />
+      </div>
+      <div className="mt-10 flex justify-end">
+        <Button className="w-1/3">Start Hazard</Button>
       </div>
     </div>
   );
@@ -123,7 +127,7 @@ function Content() {
 
 export default function Hazards() {
   return (
-    <div className="border-border h-full border-r p-4 pt-12">
+    <div className="h-full p-4 pt-12">
       <h2 className="mb-8 text-4xl font-semibold">Hazards</h2>
       <Content />
     </div>

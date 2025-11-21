@@ -20,11 +20,15 @@ import Population from "@/components/simulation/population";
 import Hazards from "@/components/simulation/hazards";
 import Shelter from "@/components/simulation/shelter";
 import Evacuation from "@/components/simulation/evacuation";
+import Timeline from "@/components/simulation/timeline";
+
+import Map from "@/components/simulation/Map";
 
 export default function Simulation() {
   const [panel, setPanel] = useState("overview");
+
   return (
-    <div className="flex h-screen">
+    <div className="flex h-screen overflow-y-clip">
       <SidebarProvider className="[--sidebar-width:4rem]">
         <Sidebar className="w-16">
           <SidebarContent className="px-0 py-4">
@@ -39,7 +43,7 @@ export default function Simulation() {
                     onClick={() => {
                       setPanel("overview");
                     }}
-                    className="cursor-pointer rounded-sm p-2 hover:bg-neutral-800"
+                    className={`cursor-pointer rounded-sm p-2 hover:bg-neutral-800 ${panel === "overview" ? "bg-neutral-700" : ""}`}
                   />
                   <Waypoints
                     size={40}
@@ -50,16 +54,12 @@ export default function Simulation() {
                   />
                   <House
                     size={40}
-                    onClick={() => {
-                      setPanel("shelter");
-                    }}
+                    onClick={() => setPanel("shelter")}
                     className={`cursor-pointer rounded-sm p-2 hover:bg-neutral-800 ${panel === "shelter" ? "bg-neutral-700" : ""}`}
                   />
                   <User
                     size={40}
-                    onClick={() => {
-                      setPanel("population");
-                    }}
+                    onClick={() => setPanel("population")}
                     className={`cursor-pointer rounded-sm p-2 hover:bg-neutral-800 ${panel === "population" ? "bg-neutral-700" : ""} `}
                   />
                   <TriangleAlert
@@ -80,8 +80,8 @@ export default function Simulation() {
         </Sidebar>
 
         <main className="flex-1">
-          <div className="flex h-full w-full">
-            <div className="w-1/4">
+          <div className="no-scrollbar flex h-full w-full">
+            <div className="border-border [&::-webkit-scrollbar-track]:bg-background w-1/4 overflow-y-scroll border-r [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-neutral-700">
               {panel === "overview" && <Overview />}
               {panel === "evacuation" && <Evacuation />}
               {panel === "shelter" && <Shelter />}
@@ -92,12 +92,8 @@ export default function Simulation() {
               <div className="border-border flex h-16 items-center border-b px-4">
                 <h1 className="text-2xl">City Evacuation Plan</h1>
               </div>
-              <div className="flex-1">
-                <iframe
-                  width="100%"
-                  height="100%"
-                  src="https://api.mapbox.com/styles/v1/edel02/cmguztntk003q01srb9tm4unr.html?title=false&access_token=pk.eyJ1IjoiZWRlbDAyIiwiYSI6ImNtZnczaWt6cjBkY2Uya3B3cjQzdWd6ZzYifQ.YDAz7tiM0WXpQdZSIEaVAQ&zoomwheel=false#13.12/14.55026/121.03159/17.6/19"
-                ></iframe>
+              <div className="relative flex-1">
+                <Map />
               </div>
             </div>
           </div>

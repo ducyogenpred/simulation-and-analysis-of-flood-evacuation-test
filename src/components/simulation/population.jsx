@@ -218,7 +218,7 @@ function Manage() {
 
 export default function Population() {
   return (
-    <div className="border-border h-full border-r p-4 pt-12">
+    <div className="h-full p-4 pt-12">
       <h2 className="mb-6 text-4xl font-semibold">Population</h2>
 
       <Tabs defaultValue="configure" className="mb-8">

@@ -22,8 +22,11 @@ import Shelter from "@/components/simulation/shelter";
 import Evacuation from "@/components/simulation/evacuation";
 import Timeline from "@/components/simulation/timeline";
 
+import Map from "@/components/simulation/Map";
+
 export default function Simulation() {
   const [panel, setPanel] = useState("overview");
+
   return (
     <div className="flex h-screen overflow-y-clip">
       <SidebarProvider className="[--sidebar-width:4rem]">
@@ -51,16 +54,12 @@ export default function Simulation() {
                   />
                   <House
                     size={40}
-                    onClick={() => {
-                      setPanel("shelter");
-                    }}
+                    onClick={() => setPanel("shelter")}
                     className={`cursor-pointer rounded-sm p-2 hover:bg-neutral-800 ${panel === "shelter" ? "bg-neutral-700" : ""}`}
                   />
                   <User
                     size={40}
-                    onClick={() => {
-                      setPanel("population");
-                    }}
+                    onClick={() => setPanel("population")}
                     className={`cursor-pointer rounded-sm p-2 hover:bg-neutral-800 ${panel === "population" ? "bg-neutral-700" : ""} `}
                   />
                   <TriangleAlert
@@ -94,12 +93,7 @@ export default function Simulation() {
                 <h1 className="text-2xl">City Evacuation Plan</h1>
               </div>
               <div className="relative flex-1">
-                <Timeline />
-                <iframe
-                  width="100%"
-                  height="100%"
-                  src="https://api.mapbox.com/styles/v1/edel02/cmguztntk003q01srb9tm4unr.html?title=false&access_token=pk.eyJ1IjoiZWRlbDAyIiwiYSI6ImNtZnczaWt6cjBkY2Uya3B3cjQzdWd6ZzYifQ.YDAz7tiM0WXpQdZSIEaVAQ&zoomwheel=false#13.12/14.55026/121.03159/17.6/19"
-                ></iframe>
+                <Map />
               </div>
             </div>
           </div>

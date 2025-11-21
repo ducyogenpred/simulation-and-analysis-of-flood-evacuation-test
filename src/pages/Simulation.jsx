@@ -46,7 +46,7 @@ export default function Simulation() {
                     onClick={() => {
                       setPanel("evacuation");
                     }}
-                    className="cursor-pointer rounded-sm p-2 hover:bg-neutral-800"
+                    className={`cursor-pointer rounded-sm p-2 hover:bg-neutral-800 ${panel === "evacuation" ? "bg-neutral-700" : ""}`}
                   />
                   <House
                     size={40}
@@ -67,7 +67,7 @@ export default function Simulation() {
                     onClick={() => {
                       setPanel("hazards");
                     }}
-                    className="cursor-pointer rounded-sm p-2 hover:bg-neutral-800"
+                    className={`cursor-pointer rounded-sm p-2 hover:bg-neutral-800 ${panel === "hazards" ? "bg-neutral-700" : ""}`}
                   />
                 </SidebarGroup>
               </div>

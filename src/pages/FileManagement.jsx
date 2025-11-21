@@ -1,3 +1,3 @@
-export default function FileManagement({ children }) {
+export default function FileManagement() {
   return <div></div>;
 }

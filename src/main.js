@@ -18,6 +18,8 @@ const createWindow = () => {
     height: 600,
     useContentSize: true,
     resizable: true,
+    fullscreen: true,
+    autoHideMenuBar: true,
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
     },
@@ -28,16 +30,26 @@ const createWindow = () => {
     mainWindow.loadURL(MAIN_WINDOW_VITE_DEV_SERVER_URL);
   } else {
     mainWindow.loadFile(
-      path.join(__dirname, `../renderer/${MAIN_WINDOW_VITE_NAME}/index.html`)
+      path.join(__dirname, `../renderer/${MAIN_WINDOW_VITE_NAME}/index.html`),
     );
   }
 
   Menu.setApplicationMenu(null);
 
-  mainWindow.maximize();
+  const template = [
+    {
+      label: "View",
+      submenu: [
+        {
+          label: "Toggle Developer Tools",
+          accelerator: "F12",
+          click: () => mainWindow.webContents.toggleDevTools(),
+        },
+      ],
+    },
+  ];
 
-  // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  Menu.setApplicationMenu(Menu.buildFromTemplate(template));
 };
 
 // This method will be called when Electron has finished

@@ -1,11 +1,12 @@
 import { createHashRouter, RouterProvider } from "react-router";
 import FileManagement from "./pages/FileManagement";
 import Simulation from "./pages/Simulation";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const router = createHashRouter([
   {
     path: "/",
-    Component: FileManagement,
+    Component: Simulation,
   },
   {
     path: "/simulation",
@@ -13,8 +14,10 @@ const router = createHashRouter([
   },
 ]);
 
-function AppRouter() {
-  return <RouterProvider router={router} />;
+export default function App() {
+  return (
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <RouterProvider router={router} />
+    </ThemeProvider>
+  );
 }
-
-export default AppRouter;

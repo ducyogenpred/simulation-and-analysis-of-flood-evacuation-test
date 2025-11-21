@@ -21,8 +21,11 @@ import Hazards from "@/components/simulation/hazards";
 import Shelter from "@/components/simulation/shelter";
 import Evacuation from "@/components/simulation/evacuation";
 
+import Map from "@/components/simulation/Map"; 
+
 export default function Simulation() {
   const [panel, setPanel] = useState("overview");
+  
   return (
     <div className="flex h-screen">
       <SidebarProvider className="[--sidebar-width:4rem]">
@@ -36,37 +39,27 @@ export default function Simulation() {
                 <SidebarGroup className="items-center space-y-3 px-0">
                   <LayoutGrid
                     size={40}
-                    onClick={() => {
-                      setPanel("overview");
-                    }}
+                    onClick={() => setPanel("overview")}
                     className="cursor-pointer rounded-sm p-2 hover:bg-neutral-800"
                   />
                   <Waypoints
                     size={40}
-                    onClick={() => {
-                      setPanel("evacuation");
-                    }}
+                    onClick={() => setPanel("evacuation")}
                     className="cursor-pointer rounded-sm p-2 hover:bg-neutral-800"
                   />
                   <House
                     size={40}
-                    onClick={() => {
-                      setPanel("shelter");
-                    }}
+                    onClick={() => setPanel("shelter")}
                     className={`cursor-pointer rounded-sm p-2 hover:bg-neutral-800 ${panel === "shelter" ? "bg-neutral-700" : ""}`}
                   />
                   <User
                     size={40}
-                    onClick={() => {
-                      setPanel("population");
-                    }}
+                    onClick={() => setPanel("population")}
                     className={`cursor-pointer rounded-sm p-2 hover:bg-neutral-800 ${panel === "population" ? "bg-neutral-700" : ""} `}
                   />
                   <TriangleAlert
                     size={40}
-                    onClick={() => {
-                      setPanel("hazards");
-                    }}
+                    onClick={() => setPanel("hazards")}
                     className="cursor-pointer rounded-sm p-2 hover:bg-neutral-800"
                   />
                 </SidebarGroup>
@@ -92,12 +85,8 @@ export default function Simulation() {
               <div className="border-border flex h-16 items-center border-b px-4">
                 <h1 className="text-2xl">City Evacuation Plan</h1>
               </div>
-              <div className="flex-1">
-                <iframe
-                  width="100%"
-                  height="100%"
-                  src="https://api.mapbox.com/styles/v1/edel02/cmguztntk003q01srb9tm4unr.html?title=false&access_token=pk.eyJ1IjoiZWRlbDAyIiwiYSI6ImNtZnczaWt6cjBkY2Uya3B3cjQzdWd6ZzYifQ.YDAz7tiM0WXpQdZSIEaVAQ&zoomwheel=false#13.12/14.55026/121.03159/17.6/19"
-                ></iframe>
+              <div className="flex-1 relative">
+                <Map />
               </div>
             </div>
           </div>

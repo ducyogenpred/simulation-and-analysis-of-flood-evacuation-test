@@ -6,11 +6,11 @@ import { ThemeProvider } from "@/components/theme-provider";
 const router = createHashRouter([
   {
     path: "/",
-    Component: Simulation,
+    element: <FileManagement />,
   },
   {
-    path: "/Simulation",
-    Component: Simulation,
+    path: "/simulation",
+    element: <Simulation />,
   },
 ]);
 

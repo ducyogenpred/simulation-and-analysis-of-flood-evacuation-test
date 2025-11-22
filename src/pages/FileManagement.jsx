@@ -54,8 +54,11 @@ import {
   Search,
   FileChartColumnIcon,
 } from "lucide-react";
+import Simulation from "./Simulation";
+import { useNavigate } from "react-router";
 
 export default function FileManagement() {
+  const navigate = useNavigate();
   const [panel, setPanel] = useState("overview");
   return (
     <div className="flex h-screen overflow-y-clip">
@@ -201,7 +204,12 @@ export default function FileManagement() {
 
                 <div></div>
                 <DialogFooter>
-                  <Button variant="default">Create New</Button>
+                  <Button
+                    variant="default"
+                    onClick={() => navigate("/simulation")}
+                  >
+                    Create New
+                  </Button>
                   <Button variant="ghost" className="underline">
                     Cancel
                   </Button>

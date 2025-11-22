@@ -9,7 +9,7 @@ const router = createHashRouter([
     Component: Simulation,
   },
   {
-    path: "/simulation",
+    path: "/Simulation",
     Component: Simulation,
   },
 ]);

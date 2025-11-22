@@ -6,7 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 const router = createHashRouter([
   {
     path: "/",
-    Component: FileManagement,
+    Component: Simulation,
   },
   {
     path: "/FileManagement",
@@ -16,7 +16,7 @@ const router = createHashRouter([
 
 export default function App() {
   return (
-    <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <RouterProvider router={router} />
     </ThemeProvider>
   );

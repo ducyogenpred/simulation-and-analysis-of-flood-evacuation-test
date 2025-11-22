@@ -41,7 +41,11 @@ function ManageShelters() {
 
       {/* Search & Filter */}
       <div className="mb-6 flex gap-2">
-        <Input type="search" placeholder="Search shelters..." className="w-full" />
+        <Input
+          type="search"
+          placeholder="Search shelters..."
+          className="w-full"
+        />
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline">
@@ -56,11 +60,10 @@ function ManageShelters() {
         </DropdownMenu>
       </div>
 
-      
-      <div className="flex flex-wrap gap-6 justify-start">
+      <div className="flex w-full flex-col justify-start gap-6">
         {/* Shelter 1 */}
-        <div className="border-border bg-sidebar flex flex-col gap-1 rounded-lg border p-4 max-w-sm w-full">
-          <div className="bg-card text-card-foreground flex rounded-t-lg p-4">
+        <div className="border-border bg-sidebar flex w-full max-w-sm flex-col gap-1 rounded-lg border p-4">
+          <div className="bg-card text-card-foreground flex w-full rounded-t-lg p-4">
             <h4 className="flex-1 text-lg font-semibold">Shelter 1</h4>
             <div className="flex flex-1 justify-end gap-4">
               <div className="bg-success flex items-center rounded-full px-3 py-1">
@@ -74,7 +77,9 @@ function ManageShelters() {
                   <DropdownMenuItem>Edit</DropdownMenuItem>
                   <DropdownMenuItem>Duplicate</DropdownMenuItem>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem variant="destructive">Delete</DropdownMenuItem>
+                  <DropdownMenuItem variant="destructive">
+                    Delete
+                  </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
@@ -94,12 +99,14 @@ function ManageShelters() {
         </div>
 
         {/* Shelter 2 */}
-        <div className="border-border bg-sidebar flex flex-col gap-1 rounded-lg border p-4 max-w-sm w-full">
+        <div className="border-border bg-sidebar flex w-full max-w-sm flex-col gap-1 rounded-lg border p-4">
           <div className="bg-card text-card-foreground flex rounded-t-lg p-4">
             <h4 className="flex-1 text-lg font-semibold">Shelter 2</h4>
             <div className="flex flex-1 justify-end gap-4">
-              <div className="bg-destructive flex items-center rounded-full px-3 py-1">
-                <h4 className="text-destructive-foreground text-sm">Unavailable</h4>
+              <div className="bg-secondary flex items-center rounded-full px-3 py-1">
+                <h4 className="text-secondary-foreground text-sm">
+                  Unavailable
+                </h4>
               </div>
               <DropdownMenu>
                 <DropdownMenuTrigger>
@@ -109,7 +116,9 @@ function ManageShelters() {
                   <DropdownMenuItem>Edit</DropdownMenuItem>
                   <DropdownMenuItem>Duplicate</DropdownMenuItem>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem variant="destructive">Delete</DropdownMenuItem>
+                  <DropdownMenuItem variant="destructive">
+                    Delete
+                  </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
@@ -134,9 +143,9 @@ function ManageShelters() {
 
 export default function Shelters() {
   return (
-    <div className="border-border h-full border-r px-8 pt-12">
+    <div className="h-full px-4 pt-12">
       <h2 className="mb-6 text-4xl font-semibold">Shelters</h2>
-          <ManageShelters />
+      <ManageShelters />
     </div>
   );
 }
